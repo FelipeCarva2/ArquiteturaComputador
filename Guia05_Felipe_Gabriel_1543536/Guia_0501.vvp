@@ -1,0 +1,80 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_000001df915360e0 .scope module, "test_f5" "test_f5" 2 36;
+ .timescale 0 0;
+v000001df915128b0_0 .net "a", 0 0, L_000001df9148af30;  1 drivers
+v000001df91512950_0 .net "b", 0 0, L_000001df915131a0;  1 drivers
+v000001df915129f0_0 .var "x", 0 0;
+v000001df91512a90_0 .var "y", 0 0;
+S_000001df915464c0 .scope begin, "main" "main" 2 46, 2 46 0, S_000001df915360e0;
+ .timescale 0 0;
+S_000001df91546650 .scope module, "moduloA" "f5a" 2 42, 2 15 0, S_000001df915360e0;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "s";
+    .port_info 1 /INPUT 1 "a";
+    .port_info 2 /INPUT 1 "b";
+L_000001df91512b30 .functor NOR 1, v000001df91512a90_0, v000001df91512a90_0, C4<0>, C4<0>;
+L_000001df9148be90 .functor NOR 1, v000001df915129f0_0, L_000001df91512b30, C4<0>, C4<0>;
+L_000001df9148af30 .functor BUFZ 1, L_000001df9148be90, C4<0>, C4<0>, C4<0>;
+v000001df91512f80_0 .net "a", 0 0, v000001df915129f0_0;  1 drivers
+v000001df91512d60_0 .net "and_ab", 0 0, L_000001df9148be90;  1 drivers
+v000001df91536600_0 .net "b", 0 0, v000001df91512a90_0;  1 drivers
+v000001df91536270_0 .net "not_b", 0 0, L_000001df91512b30;  1 drivers
+v000001df9148ae90_0 .net "s", 0 0, L_000001df9148af30;  alias, 1 drivers
+S_000001df91512720 .scope module, "moduloB" "f5b" 2 43, 2 28 0, S_000001df915360e0;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "s";
+    .port_info 1 /INPUT 1 "a";
+    .port_info 2 /INPUT 1 "b";
+L_000001df91545eb0 .functor NOT 1, v000001df91512a90_0, C4<0>, C4<0>, C4<0>;
+L_000001df915131a0 .functor AND 1, v000001df915129f0_0, L_000001df91545eb0, C4<1>, C4<1>;
+v000001df915467e0_0 .net *"_ivl_0", 0 0, L_000001df91545eb0;  1 drivers
+v000001df91546880_0 .net "a", 0 0, v000001df915129f0_0;  alias, 1 drivers
+v000001df9148bbb0_0 .net "b", 0 0, v000001df91512a90_0;  alias, 1 drivers
+v000001df9148bc50_0 .net "s", 0 0, L_000001df915131a0;  alias, 1 drivers
+    .scope S_000001df915360e0;
+T_0 ;
+    %fork t_1, S_000001df915464c0;
+    %jmp t_0;
+    .scope S_000001df915464c0;
+t_1 ;
+    %vpi_call 2 47 "$display", "Guia_0501 - Felipe Gabriel de Carvalho - 1543536" {0 0 0};
+    %vpi_call 2 48 "$display", "Test module" {0 0 0};
+    %vpi_call 2 49 "$display", "   x     y    a    b" {0 0 0};
+    %vpi_call 2 52 "$monitor", "%4b %4b %4b %4b", v000001df915129f0_0, v000001df91512a90_0, v000001df915128b0_0, v000001df91512950_0 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001df915129f0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001df91512a90_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001df915129f0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001df91512a90_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001df915129f0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001df91512a90_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001df915129f0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001df91512a90_0, 0, 1;
+    %end;
+    .scope S_000001df915360e0;
+t_0 %join;
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "Guia_0501.v";
