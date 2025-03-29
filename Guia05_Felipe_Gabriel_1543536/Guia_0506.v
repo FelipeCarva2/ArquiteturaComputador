@@ -1,6 +1,6 @@
 // ------------------------- 
 // Guia_0506.v 
-// Nome: felipe Gabriel de Carvalho
+// Nome: Felipe Gabriel de Carvalho
 // Matricula: 1543536
 // ------------------------- 
 
