@@ -157,5 +157,30 @@ d) f (x,y,w,z) = ∑ m ( 2, 4, 5, 6, 10, 13, 14 )  =  y' * w' * z + x' * y * w
 e) f (x,y,w,z) = ∑ m ( 0, 1, 3, 5, 8, 9, 11, 13 ) = x' * z + y' * w' + x * y * z
 
 
+04.) O mapa de Veitch-Karnaugh também serve para simplificar produtos de somas (MAXTERMOS):
+Construir os mapas de Veitch-Karnaugh e simplificar as funções lógicas abaixo por MAXTERMOS 
+e verificar pelas respectivas tabelas-verdades implementadas em Verilog e no Logisim:
+
+a) F(X,Y,W,Z) = Π M(2,5,7,13)
+
+F = (X+Y'+W)(Y'+Z)(X'+W+Z')
 
 
+b) F(X,Y,W,Z) = Π M(4,6,9,11,14)
+
+F = (X+W)(X'+Y+W')(Y'+W+Z)
+
+
+c) F(X,Y,W,Z) = Π M(4,7,8,10,12)
+
+F = (Y+Z)(X+W')(X'+Y'+W)
+
+
+d) F(X,Y,W,Z) = Π M(1,5,9,11,13,15)
+
+F = (X+Z)(W+Z')(X'+Y'+W')
+
+
+e) F(X,Y,W,Z) = Π M(2,3,6,7,11,13,14)
+
+F = (Y+Z)(X+W)(X'+Z')
